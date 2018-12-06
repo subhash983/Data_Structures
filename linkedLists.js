@@ -95,12 +95,38 @@ linkedList.prototype.indexOf = function(value) {
 // ll.addToTail("400");
 
 //indexOf
-var ll = new linkedList();
-ll.addToHead("3");
-ll.addToHead("5");
-ll.addToHead("3");
-ll.addToHead("8");
+// var ll = new linkedList();
+// ll.addToHead("3");
+// ll.addToHead("5");
+// ll.addToHead("3");
+// ll.addToHead("8");
+//
+// var indxArr = ll.indexOf("8");
+//
+// console.log(indxArr);
 
-var indxArr = ll.indexOf("8");
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
 
-console.log(indxArr);
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size(){
+
+      .
+    }
+}
+
+var n1 = new Node('123', null);
+var n2 = new Node('456', n1);
+
+let ll = new LinkedList();
+ll.head = n2;
