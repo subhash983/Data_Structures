@@ -12,7 +12,7 @@
 // linkedList.prototype.addToHead = function(value) {
 //     var newNode = new node(value, this.head, null);
 //     if (this.head) {
-//         this.head.prev = newNode; 
+//         this.head.prev = newNode;
 //     } else {
 //         this.tail = newNode;
 //     }
@@ -132,6 +132,9 @@ class LinkedList {
     return this.head;
   }
   getLast() {
+    if (!this.head) {
+      return null;
+    }
     let currentNode = this.head;
     while (currentNode.next) {
       currentNode = currentNode.next;
@@ -163,6 +166,51 @@ class LinkedList {
     }
     return this;
   }
+  insertLast(data) {
+    let last = this.getLast();
+    if (last) {
+      last.next = new Node(data);
+    } else {
+      this.head = new Node(data);
+    }
+  }
+  getAt(index) {
+    let currentNode = this.head;
+    let cIndex = 0;
+    while (currentNode) {
+      if (cIndex === index) {
+        break;
+      }
+      cIndex++;
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+  removeAt(index) {
+    if (!this.head) {
+      return;
+    }
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+    let previous = this.getAt(index - 1);
+    if (!previous || !previous.next) {
+      return;
+    }
+    previous.next = previous.next.next;
+  }
+  insertAt(index, data) {
+    if (!this.head) {
+      this.head = new Node(data);
+      return;
+    }
+    if (index == 0) {
+      this.head = new Node(data, this.head);
+    }
+    let previous = this.getAt(index - 1) || this.getLast();
+    previous.next = new Node(data, previous.next);
+  }
 }
 
 var n1 = new Node("123", null);
@@ -172,4 +220,5 @@ var n3 = new Node("789", n2);
 let ll = new LinkedList();
 ll.head = n3;
 
-console.log(ll.removeLast());
+ll.insertAt(4, 987);
+console.log(ll.getAt(3));
