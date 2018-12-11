@@ -211,14 +211,25 @@ class LinkedList {
     let previous = this.getAt(index - 1) || this.getLast();
     previous.next = new Node(data, previous.next);
   }
+  forEach(fn) {
+    let currentNode = this.head;
+    let index = 0;
+    while (currentNode) {
+      fn(currentNode, index);
+      index++;
+      currentNode = currentNode.next;
+    }
+  }
 }
 
-var n1 = new Node("123", null);
-var n2 = new Node("456", n1);
-var n3 = new Node("789", n2);
+var n1 = new Node(123, null);
+var n2 = new Node(456, n1);
+var n3 = new Node(789, n2);
 
 let ll = new LinkedList();
 ll.head = n3;
 
-ll.insertAt(4, 987);
-console.log(ll.getAt(3));
+ll.forEach((node, index) => {
+  node.data += 10;
+});
+console.log(ll.getAt(0));
