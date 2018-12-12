@@ -220,6 +220,13 @@ class LinkedList {
       currentNode = currentNode.next;
     }
   }
+  *[Symbol.iterator](){
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode;
+      currentNode = currentNode.next;
+    }
+  }
 }
 
 var n1 = new Node(123, null);
@@ -229,7 +236,12 @@ var n3 = new Node(789, n2);
 let ll = new LinkedList();
 ll.head = n3;
 
-ll.forEach((node, index) => {
-  node.data += 10;
-});
+// ll.forEach((node, index) => {
+//   node.data += 10;
+// });
+
+
+for (let node of ll) {
+    node.data += 10;
+}
 console.log(ll.getAt(0));
