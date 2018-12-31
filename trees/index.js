@@ -10,3 +10,17 @@ class Node {
     this.children = this.children.filter(node => node.data !== data);
   }
 }
+
+class Tree {
+  constructor() {
+    this.root = null;
+  }
+  traverseBF(fn) {
+    let nodes = [this.root];
+    while (nodes.length) {
+      let node = nodes.shift();
+      nodes.push(...node.children);
+      fn(node);
+    }
+  }
+}
