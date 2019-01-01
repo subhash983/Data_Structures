@@ -23,4 +23,12 @@ class Tree {
       fn(node);
     }
   }
+  traverseDF(fn) {
+    let nodes = [this.root];
+    while (nodes.length) {
+      let node = nodes.shift();
+      nodes.unshift(...node.children);
+      fn(node);
+    }
+  }
 }
