@@ -19,6 +19,9 @@ class Node {
       }
     }
   }
+  validate(){
+
+  }
   contains(data) {
     if (data === this.data) {
       return this;
