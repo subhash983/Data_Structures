@@ -20,7 +20,7 @@ class Node {
     }
   }
   validate(){
-
+    //TODO add validation logic
   }
   contains(data) {
     if (data === this.data) {
