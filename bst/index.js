@@ -19,9 +19,7 @@ class Node {
       }
     }
   }
-  validate(){
-    //TODO add validation logic
-  }
+
   contains(data) {
     if (data === this.data) {
       return this;
@@ -34,3 +32,18 @@ class Node {
     return null;
   }
 }
+
+const validate = (node, min = null, max = null) => {
+  if ((min !== null && this.data < min) || (max != null && this.data > max)) {
+    return false;
+  }
+  let leftValid = true;
+  if (this.left) {
+    leftValid = validate(node.left, min, node.data);
+  }
+  let rightValid = true;
+  if (node.right) {
+    rightValid = validate(node.right, node.data, max);
+  }
+  return leftValid && rightValid;
+};
