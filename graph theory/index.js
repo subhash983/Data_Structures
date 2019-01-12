@@ -3,7 +3,7 @@
 
 class Graph {
   constructor() {
-
+    this.adjListArray = [];
   }
   addEdge(){
 
