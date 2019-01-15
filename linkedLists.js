@@ -183,7 +183,7 @@ class LinkedList {
       }
       cIndex++;
       currentNode = currentNode.next;
-    }
+    } 
     return currentNode;
   }
   removeAt(index) {
