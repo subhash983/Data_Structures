@@ -40,3 +40,8 @@ g.addEdge("c", "f");
 g.printGraph();
 
 //TO Adjacency matrix
+// class Graph {
+//   constructor() {
+//
+//   }
+// }
