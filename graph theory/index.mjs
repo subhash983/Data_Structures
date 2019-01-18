@@ -42,6 +42,6 @@ g.printGraph();
 //TO Adjacency matrix
 // class Graph {
 //   constructor() {
-//
+//  this.adjacencyMatrix=[];
 //   }
 // }
