@@ -11,7 +11,7 @@ import {LinkedList} from "./linkedLists";
 //     this.adjList[source].insertFirst(destination);
 //
 //     if (!this.adjList[destination]) {
-//       this.adjList[destination] = new LinkedList();
+//       this.adjList[destination] = new LinkedList(); 
 //     }
 //     this.adjList[destination].insertFirst(source);
 //   }
