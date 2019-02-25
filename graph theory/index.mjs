@@ -11,7 +11,7 @@ import {LinkedList} from "./linkedLists";
 //     this.adjList[source].insertFirst(destination);
 //
 //     if (!this.adjList[destination]) {
-//       this.adjList[destination] = new LinkedList(); 
+//       this.adjList[destination] = new LinkedList();
 //     }
 //     this.adjList[destination].insertFirst(source);
 //   }
@@ -47,10 +47,10 @@ class Graph {
   }
 }
 let g = new Graph(6);
-var vertices = [ 'a', 'b', 'c', 'd', 'e', 'f' ];
+var vertices = ["a", "b", "c", "d", "e", "f"];
 // adding vertices
 for (var i = 0; i < vertices.length; i++) {
-    g.addVertex(vertices[i]);
+  g.addVertex(vertices[i]);
 }
 g.addEdge("a", "b");
 g.addEdge("a", "c");
@@ -61,11 +61,22 @@ g.addEdge("d", "e");
 g.addEdge("c", "e");
 g.addEdge("c", "f");
 
-g.printGraph();
+//g.printGraph();
 
-//TO Adjacency matrix
-// class Graph {
-//   constructor() {
-//  this.adjacencyMatrix=[];
-//   }
-// }
+const breadthFirstTraversal = startingNode => {
+  let vertices = [startingNode];
+  let visited = [];
+  while (vertices.length) {
+    let v = vertices.shift();
+    visited.push(v);
+    console.log("visited > " + v);
+    let newVertices = g.AdjList.get(v);
+    for (let vrtx of newVertices) {
+      if(!visited.includes(vrtx) && !vertices.includes(vrtx)){
+        vertices.push(vrtx);
+      }
+    }
+  }
+};
+
+breadthFirstTraversal("a");
